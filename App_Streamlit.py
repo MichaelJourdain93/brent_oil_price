@@ -3,7 +3,7 @@ import joblib
 from prophet.plot import plot_plotly
 # import plotly.graph_objs as go
 
-model = joblib.load('prophet_model_final(1).pkl')
+model = joblib.load('prophet_model_final (1).pkl')
 
 st.title("Previsao do Preço do Petroleo Brent")
 
