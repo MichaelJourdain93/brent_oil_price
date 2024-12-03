@@ -1,0 +1,35 @@
+# Valores reais
+y_true = test['price per Barrel'].values  # Certifique-se de que esta coluna contém os valores reais
+
+# Previsões dos modelos anteriores
+# Assuming your date column in 'test' is named 'date'
+test['ds'] = test['date']  # Create a 'ds' column from your 'date' column
+model_predictions = {
+    "Model A": predictionsA,  # Substitua pelas previsões do Modelo A
+    "Model B": predictionsB,  # Substitua pelas previsões do Modelo B
+    "Model C": predictionsC,  # Substitua pelas previsões do Modelo C
+}
+# Inicializar DataFrame para resultados
+evaluation_results = []
+
+# Avaliação de cada modelo
+for model_name, predictions in model_predictions.items():
+    # Calcular métricas
+    rmse = np.sqrt(mean_squared_error(y_true, predictions))
+    mae = mean_absolute_error(y_true, predictions)
+    r2 = r2_score(y_true, predictions)
+
+    # Adicionar resultados ao DataFrame
+    evaluation_results.append({
+        "Model": model_name,
+        "RMSE": rmse,
+        "MAE": mae,
+        "R²": r2
+    })
+
+# Converter resultados para DataFrame
+results_df = pd.DataFrame(evaluation_results)
+
+# Exibir resultados
+print("Comparação de Modelos:")
+print(results_df.sort_values(by="RMSE"))  # Ordenar por RMSE para identificar o melhor modelo
