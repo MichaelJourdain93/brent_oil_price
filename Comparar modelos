@@ -33,3 +33,9 @@ results_df = pd.DataFrame(evaluation_results)
 # Exibir resultados
 print("Comparação de Modelos:")
 print(results_df.sort_values(by="RMSE"))  # Ordenar por RMSE para identificar o melhor modelo
+
+Comparação de Modelos:
+     Model       RMSE        MAE           R²
+2  Model C  73.609532  73.592932 -1259.114604
+1  Model B  73.620615  73.603952 -1259.494100
+0  Model A  76.216627  76.201925 -1349.956557
